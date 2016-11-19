@@ -56,17 +56,21 @@ public class Jeu32CartesPourLaBataille {
 	}
 	
 	
-	
+	// Methode qui coupe le jeu
   public void couper() {
+	  // Initiation des variables
 	  int demiPaquet = 16;
 	  int taillePaquet = 32;
 	  int k =0;
 	  int premier=16;
 	  int dernier=0;
 	  int quantite = 0;
-	  ;
+	  // Création d'un tableau tampon
 	  Carte[] temp = new Carte[demiPaquet];
-	  
+	  /* 
+	   * Copie de la seconde moitié du tableau jeu dans le tableau tampon
+	   * grâce à un constructeur de copie visible dans la classe Carte
+	   */
 	  for(int i = demiPaquet; i < taillePaquet; i++ ){
 		  Carte c = jeu[i];
 		    if (c != null) {
@@ -74,12 +78,19 @@ public class Jeu32CartesPourLaBataille {
 		        k++;
 		    } 
 	  }
-	  
+	  /*
+	   * Le tableau jeu est rempli depuis le tableau tampon en suivant le schéma suivant
+	   * L'objet à l'indice x du tableau jeu est déplacé à l'indice x+taille du demiPaquet
+	   * L'objet à l'indice x du tableau jeu est ensuite remplacé par l'objet
+	   * de l'objet tampon à l'indice j
+	   */
 	  for(int j = 0; j < demiPaquet; j++) {
 	  if (quantite + demiPaquet == taillePaquet) {
           throw new RuntimeException("Queue overflow");
       }
+	  // Déplacement de l'objet
 	  jeu[premier] = jeu[dernier];
+	  // Remplacement de l'objet déplacé par un objet du tableau tampon
       jeu[dernier] = temp[j];
       dernier = (dernier + 1) % jeu.length;
       premier++;

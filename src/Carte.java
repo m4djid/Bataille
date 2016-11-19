@@ -36,7 +36,7 @@ public class Carte {
     public int getValeur() {
         return valeur;
     }
- 
+    // Constructeur de copie
    public Carte(Carte c) {
     	couleur = c.couleur;
     	figure = c.figure;
