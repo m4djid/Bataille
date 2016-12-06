@@ -5,10 +5,12 @@ public class Jeu32CartesPourLaBataille {
 	private static Carte jeu[] = new Carte[32];
 	    private static String []figure = {"7","8","9","10","Valet","Dame","Roi","As"};
 	    private static String []couleur = {"Pique","Coeur","Carreau","Trefle"};
-
 	    private static int Figure;
 	    private static int Valeur = 0;
 	    private static  int nbrFigures = 8;
+	    
+		//Carte[] pli = new Carte[32];
+		//int sommet;
 
 	    public static void JeuDe32CartesPourLaBataille()
 	        {
@@ -21,9 +23,8 @@ public class Jeu32CartesPourLaBataille {
 	                    }
 	            }
 	        }
-	
 	    
-	    public static Carte get(int i)
+	    public Carte get(int i)
 		{
 			return jeu[i];
 		}
