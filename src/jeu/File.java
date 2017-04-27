@@ -1,3 +1,4 @@
+package jeu;
 
 public class File {
 
@@ -55,5 +56,9 @@ public class File {
     
     public int nombreMain(){
     	return dernier;
+    }
+
+    public int getTailleMain() {
+        return quantite;
     }
 }
